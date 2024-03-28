@@ -86,6 +86,7 @@ def mask_image():
 			# the bounding box and text
 			label = "Mask" if mask > withoutMask else "No Mask"
 			color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
+			print(f"label: {label}") # TODO(jiahang): new line
 
 			# include the probability in the label
 			label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
@@ -97,8 +98,8 @@ def mask_image():
 			cv2.rectangle(image, (startX, startY), (endX, endY), color, 2)
 
 	# show the output image
-	cv2.imshow("Output", image)
-	cv2.waitKey(0)
+	# cv2.imshow("Output", image)
+	# cv2.waitKey(0)
 	
 if __name__ == "__main__":
 	mask_image()
